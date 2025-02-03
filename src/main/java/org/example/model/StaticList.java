@@ -12,8 +12,6 @@ public class StaticList implements List {
 
     @Override
     public void add(int element) {
-        // Pre: count < MAX
-        // Post: Se agrega el elemento al final.
         if (count >= MAX) {
             throw new RuntimeException("Lista llena");
         }
@@ -23,8 +21,6 @@ public class StaticList implements List {
 
     @Override
     public int get(int index) {
-        // Pre: 0 <= index < count
-        // Post: Retorna el elemento en la posición index.
         if (index < 0 || index >= count) {
             throw new IndexOutOfBoundsException("Índice inválido");
         }
@@ -33,8 +29,6 @@ public class StaticList implements List {
 
     @Override
     public void set(int index, int element) {
-        // Pre: 0 <= index < count
-        // Post: Se reemplaza el elemento en la posición index por element.
         if (index < 0 || index >= count) {
             throw new IndexOutOfBoundsException("Índice inválido");
         }
@@ -43,8 +37,6 @@ public class StaticList implements List {
 
     @Override
     public void remove(int index) {
-        // Pre: 0 <= index < count
-        // Post: Se elimina el elemento en index y se desplazan los elementos posteriores.
         if (index < 0 || index >= count) {
             throw new IndexOutOfBoundsException("Índice inválido");
         }
@@ -57,5 +49,10 @@ public class StaticList implements List {
     @Override
     public int size() {
         return count;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return count == 0;
     }
 }

@@ -1,9 +1,7 @@
 package org.example.model;
 
 public class StaticQueue implements Queue {
-
     private static final int MAX = 10000;
-
     private final int[] array;
     private int count;
 
@@ -14,31 +12,34 @@ public class StaticQueue implements Queue {
 
     @Override
     public int getFirst() {
-        if (this.isEmpty()) {
-            throw new RuntimeException("No se puede obtener el primero de una cola vacia");
+        if (isEmpty()) {
+            throw new RuntimeException("No se puede obtener el primero de una cola vacía");
         }
-        return this.array[0];
+        return array[0];
     }
 
     @Override
     public boolean isEmpty() {
-        return this.count == 0;
+        return count == 0;
     }
 
     @Override
     public void add(int a) {
-        this.array[count] = a;
-        this.count++;
+        if (count >= MAX) {
+            throw new RuntimeException("Cola llena");
+        }
+        array[count] = a;
+        count++;
     }
 
     @Override
     public void remove() {
-        if (this.isEmpty()) {
-            throw new RuntimeException("No se puede desacolar de una cola vacia");
+        if (isEmpty()) {
+            throw new RuntimeException("No se puede desencolar de una cola vacía");
         }
-        for (int i = 0; i < this.count - 1; i++) {
-            this.array[i] = this.array[i + 1];
+        for (int i = 0; i < count - 1; i++) {
+            array[i] = array[i + 1];
         }
-        this.count--;
+        count--;
     }
 }

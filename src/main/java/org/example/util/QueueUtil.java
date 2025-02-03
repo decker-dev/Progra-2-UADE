@@ -10,13 +10,13 @@ public class QueueUtil {
         Queue aux = new StaticQueue();
         Queue aux2 = new StaticQueue();
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             aux.add(queue.getFirst());
             aux2.add(queue.getFirst());
             queue.remove();
         }
 
-        while(!aux2.isEmpty()) {
+        while (!aux2.isEmpty()) {
             queue.add(aux2.getFirst());
             aux2.remove();
         }
@@ -25,7 +25,7 @@ public class QueueUtil {
     }
 
     public static void bubbleSort(Queue queue) {
-        // Extraemos los elementos de la cola en nuestro TDA List.
+        // Extraemos los elementos de la cola en una instancia de nuestro TDA List.
         List list = new StaticList();
         while (!queue.isEmpty()) {
             list.add(queue.getFirst());
@@ -33,11 +33,10 @@ public class QueueUtil {
         }
 
         int n = list.size();
-        // Aplicamos el algoritmo de burbuja sobre la lista.
+        // Aplicamos el algoritmo de burbuja.
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - 1 - i; j++) {
                 if (list.get(j) > list.get(j + 1)) {
-                    // Intercambiamos los elementos usando el método set.
                     int temp = list.get(j);
                     list.set(j, list.get(j + 1));
                     list.set(j + 1, temp);

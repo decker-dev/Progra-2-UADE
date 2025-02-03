@@ -2,41 +2,35 @@ package org.example.model;
 
 public class StaticStack implements Stack {
 
-    private static final int MAX = 10000;
-
-    private final int[] array;
-    private int count;
+    private List list;
 
     public StaticStack() {
-        this.array = new int[MAX];
-        this.count = 0;
+        this.list = new StaticList();
     }
 
     @Override
     public int getTop() {
-        if(this.isEmpty()) {
-            throw new RuntimeException("No se puede obtener el tope de una pila vacia");
+        if (isEmpty()) {
+            throw new RuntimeException("No se puede obtener el tope de una pila vacía");
         }
-        return this.array[count - 1];
+        return list.get(list.size() - 1);
     }
 
     @Override
     public boolean isEmpty() {
-        return this.count == 0;
+        return list.isEmpty();
     }
 
     @Override
     public void add(int a) {
-        this.array[count] = a;
-        this.count++;
+        list.add(a);
     }
 
     @Override
     public void remove() {
-        if(this.isEmpty()) {
-            throw new RuntimeException("No se puede desapilar de una pila vacia");
+        if (isEmpty()) {
+            throw new RuntimeException("No se puede desapilar de una pila vacía");
         }
-        this.count--;
+        list.remove(list.size() - 1);
     }
-
 }
