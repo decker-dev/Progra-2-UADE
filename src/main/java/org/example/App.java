@@ -5,69 +5,72 @@ import org.example.model.StaticQueue;
 import org.example.model.List;
 import org.example.model.StaticList;
 import org.example.model.Stack;
+import org.example.model.StaticStack;
 import org.example.util.QueueUtil;
 import org.example.util.StackListUtil;
 
 public class App {
 
     public static void main(String[] args) {
-        // --- Demostración de Queue y ordenamiento (Bubble Sort) ---
-        Queue queue = new StaticQueue();
-        // Insertamos algunos elementos desordenados.
-        queue.add(5);
-        queue.add(2);
-        queue.add(9);
-        queue.add(1);
+        Queue originalQueue = new StaticQueue();
+        originalQueue.add(5);
+        originalQueue.add(2);
+        originalQueue.add(9);
+        originalQueue.add(1);
 
         System.out.println("Cola original:");
-        Queue copyQueue = QueueUtil.copy(queue); // para imprimir sin modificar la cola original
-        while (!copyQueue.isEmpty()) {
-            System.out.print(copyQueue.getFirst() + " ");
-            copyQueue.remove();
+        // Usar una copia para imprimir sin modificar la cola original.
+        Queue printedQueue = QueueUtil.copy(originalQueue);
+        while (!printedQueue.isEmpty()) {
+            System.out.print(printedQueue.getFirst() + " ");
+            printedQueue.remove();
         }
         System.out.println();
 
-        // Ordenamos la cola.
-        // Para este ejemplo, volvemos a insertar los mismos elementos.
-        queue.add(5);
-        queue.add(2);
-        queue.add(9);
-        queue.add(1);
-        QueueUtil.bubbleSort(queue);
+        // Crear una nueva cola para ordenar (para evitar duplicados).
+        Queue queueToSort = new StaticQueue();
+        queueToSort.add(5);
+        queueToSort.add(2);
+        queueToSort.add(9);
+        queueToSort.add(1);
+
+        QueueUtil.bubbleSort(queueToSort);
 
         System.out.println("Cola ordenada con Bubble Sort:");
-        while (!queue.isEmpty()) {
-            System.out.print(queue.getFirst() + " ");
-            queue.remove();
+        while (!queueToSort.isEmpty()) {
+            System.out.print(queueToSort.getFirst() + " ");
+            queueToSort.remove();
         }
         System.out.println("\n");
 
         // --- Demostración de conversión entre Lista y Pila ---
-        // Creamos una lista y agregamos elementos.
-        List list = new StaticList();
-        list.add(10);
-        list.add(20);
-        list.add(30);
 
-        // Convertimos la lista a una pila.
-        Stack stack = StackListUtil.mapListToStack(list);
+        // Crear e inicializar una lista de ejemplo.
+        List sampleList = new StaticList();
+        sampleList.add(10);
+        sampleList.add(20);
+        sampleList.add(30);
+
+        // Convertir la lista a una pila.
+        Stack stackFromList = StackListUtil.mapListToStack(sampleList);
         System.out.println("Pila obtenida a partir de la lista:");
-        while (!stack.isEmpty()) {
-            System.out.print(stack.getTop() + " ");
-            stack.remove();
+        while (!stackFromList.isEmpty()) {
+            System.out.print(stackFromList.getTop() + " ");
+            stackFromList.remove();
         }
         System.out.println();
 
-        // Volvemos a llenar la pila.
-        stack.add(100);
-        stack.add(200);
-        stack.add(300);
+        // Crear y llenar una pila de ejemplo.
+        Stack sampleStack = new StaticStack();
+        sampleStack.add(100);
+        sampleStack.add(200);
+        sampleStack.add(300);
 
-        // Convertimos la pila a una lista.
-        List listFromStack = StackListUtil.mapStackToList(stack);
+        // Convertir la pila a una lista.
+        List listFromStack = StackListUtil.mapStackToList(sampleStack);
         System.out.println("Lista obtenida a partir de la pila:");
-        for (int i = 0; i < listFromStack.size(); i++) {
-            System.out.print(listFromStack.get(i) + " ");
+        for (int index = 0; index < listFromStack.size(); index++) {
+            System.out.print(listFromStack.get(index) + " ");
         }
         System.out.println();
     }

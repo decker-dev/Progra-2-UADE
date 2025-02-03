@@ -1,35 +1,35 @@
 package org.example.model;
 
 public class StaticQueue implements Queue {
-    private static final int MAX = 10000;
-    private final int[] array;
-    private int count;
+    private static final int MAX_CAPACITY = 10000;
+    private final int[] elements;
+    private int currentSize;
 
     public StaticQueue() {
-        this.array = new int[MAX];
-        this.count = 0;
+        this.elements = new int[MAX_CAPACITY];
+        this.currentSize = 0;
     }
 
     @Override
     public int getFirst() {
         if (isEmpty()) {
-            throw new RuntimeException("No se puede obtener el primero de una cola vacía");
+            throw new RuntimeException("No se puede obtener el primer elemento de una cola vacía");
         }
-        return array[0];
+        return elements[0];
     }
 
     @Override
     public boolean isEmpty() {
-        return count == 0;
+        return currentSize == 0;
     }
 
     @Override
-    public void add(int a) {
-        if (count >= MAX) {
+    public void add(int element) {
+        if (currentSize >= MAX_CAPACITY) {
             throw new RuntimeException("Cola llena");
         }
-        array[count] = a;
-        count++;
+        elements[currentSize] = element;
+        currentSize++;
     }
 
     @Override
@@ -37,9 +37,9 @@ public class StaticQueue implements Queue {
         if (isEmpty()) {
             throw new RuntimeException("No se puede desencolar de una cola vacía");
         }
-        for (int i = 0; i < count - 1; i++) {
-            array[i] = array[i + 1];
+        for (int pos = 0; pos < currentSize - 1; pos++) {
+            elements[pos] = elements[pos + 1];
         }
-        count--;
+        currentSize--;
     }
 }

@@ -2,10 +2,10 @@ package org.example.model;
 
 public class StaticStack implements Stack {
 
-    private List list;
+    private final List internalList;
 
     public StaticStack() {
-        this.list = new StaticList();
+        this.internalList = new StaticList();
     }
 
     @Override
@@ -13,17 +13,17 @@ public class StaticStack implements Stack {
         if (isEmpty()) {
             throw new RuntimeException("No se puede obtener el tope de una pila vacía");
         }
-        return list.get(list.size() - 1);
+        return internalList.get(internalList.size() - 1);
     }
 
     @Override
     public boolean isEmpty() {
-        return list.isEmpty();
+        return internalList.isEmpty();
     }
 
     @Override
-    public void add(int a) {
-        list.add(a);
+    public void add(int element) {
+        internalList.add(element);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class StaticStack implements Stack {
         if (isEmpty()) {
             throw new RuntimeException("No se puede desapilar de una pila vacía");
         }
-        list.remove(list.size() - 1);
+        internalList.remove(internalList.size() - 1);
     }
 }
