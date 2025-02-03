@@ -58,9 +58,4 @@ public class StaticList implements List {
     public int size() {
         return count;
     }
-
-    @Override
-    public boolean isEmpty() {
-        return count == 0;
-    }
 }

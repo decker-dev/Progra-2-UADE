@@ -6,5 +6,4 @@ public interface List {
     void set(int index, int element);
     void remove(int index);
     int size();
-    boolean isEmpty();
 }
