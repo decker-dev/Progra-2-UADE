@@ -12,34 +12,27 @@ import org.example.util.StackListUtil;
 public class App {
 
     public static void main(String[] args) {
-        Queue originalQueue = new StaticQueue();
-        originalQueue.add(5);
-        originalQueue.add(2);
-        originalQueue.add(9);
-        originalQueue.add(1);
+        // --- Demostración de Queue y ordenamiento (Bubble Sort) ---
+
+        // Crear e inicializar la cola con elementos desordenados.
+        Queue unsortedQueue = new StaticQueue();
+        unsortedQueue.add(5);
+        unsortedQueue.add(2);
+        unsortedQueue.add(9);
+        unsortedQueue.add(1);
 
         System.out.println("Cola original:");
-        // Usar una copia para imprimir sin modificar la cola original.
-        Queue printedQueue = QueueUtil.copy(originalQueue);
-        while (!printedQueue.isEmpty()) {
-            System.out.print(printedQueue.getFirst() + " ");
-            printedQueue.remove();
-        }
-        System.out.println();
+        // Imprimir la cola sin destruirla.
+        QueueUtil.printQueue(unsortedQueue);
 
-        // Crear una nueva cola para ordenar (para evitar duplicados).
-        Queue queueToSort = new StaticQueue();
-        queueToSort.add(5);
-        queueToSort.add(2);
-        queueToSort.add(9);
-        queueToSort.add(1);
-
-        QueueUtil.bubbleSort(queueToSort);
+        // Ordenar la misma cola.
+        QueueUtil.bubbleSort(unsortedQueue);
 
         System.out.println("Cola ordenada con Bubble Sort:");
-        while (!queueToSort.isEmpty()) {
-            System.out.print(queueToSort.getFirst() + " ");
-            queueToSort.remove();
+        // Se imprime la cola ordenada (aquí se vacía la cola al imprimirla).
+        while (!unsortedQueue.isEmpty()) {
+            System.out.print(unsortedQueue.getFirst() + " ");
+            unsortedQueue.remove();
         }
         System.out.println("\n");
 
@@ -62,9 +55,9 @@ public class App {
 
         // Crear y llenar una pila de ejemplo.
         Stack sampleStack = new StaticStack();
-        sampleStack.add(100);
-        sampleStack.add(200);
-        sampleStack.add(300);
+        sampleStack.add(10);
+        sampleStack.add(20);
+        sampleStack.add(30);
 
         // Convertir la pila a una lista.
         List listFromStack = StackListUtil.mapStackToList(sampleStack);
