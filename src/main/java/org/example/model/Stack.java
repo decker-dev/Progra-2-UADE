@@ -6,5 +6,4 @@ public interface Stack {
     boolean isEmpty();
     void add(int a);
     void remove();
-
 }

@@ -26,8 +26,8 @@ public class StaticStack implements Stack {
     }
 
     @Override
-    public void add(int value) {
-        this.array[count] = value;
+    public void add(int a) {
+        this.array[count] = a;
         this.count++;
     }
 
