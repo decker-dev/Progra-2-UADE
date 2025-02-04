@@ -1,6 +1,6 @@
-package org.example.model;
+package org.example.model.Static;
 
-public class StaticPriorityQueue implements PriorityQueue{
+public class StaticPriorityQueue implements PriorityQueue {
     private static final int MAX = 10000;
     private int[] values;
     private int[] priorities;

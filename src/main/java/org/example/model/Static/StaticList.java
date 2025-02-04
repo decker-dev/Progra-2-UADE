@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.Static;
 
 public class StaticList implements List {
     private static final int MAX_CAPACITY = 10000;

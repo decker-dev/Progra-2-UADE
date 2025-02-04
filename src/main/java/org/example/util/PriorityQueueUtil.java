@@ -1,7 +1,7 @@
 package org.example.util;
 
-import org.example.model.PriorityQueue;
-import org.example.model.StaticPriorityQueue;
+import org.example.model.Static.PriorityQueue;
+import org.example.model.Static.StaticPriorityQueue;
 
 
 public class PriorityQueueUtil {

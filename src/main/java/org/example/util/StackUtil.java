@@ -1,7 +1,7 @@
 package org.example.util;
 
-import org.example.model.Stack;
-import org.example.model.StaticStack;
+import org.example.model.Static.Stack;
+import org.example.model.Static.StaticStack;
 
 public class StackUtil {
 

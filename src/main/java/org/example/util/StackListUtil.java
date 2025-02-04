@@ -1,9 +1,9 @@
 package org.example.util;
 
-import org.example.model.List;
-import org.example.model.StaticList;
-import org.example.model.Stack;
-import org.example.model.StaticStack;
+import org.example.model.Static.List;
+import org.example.model.Static.StaticList;
+import org.example.model.Static.Stack;
+import org.example.model.Static.StaticStack;
 
 public class StackListUtil {
 

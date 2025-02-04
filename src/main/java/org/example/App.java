@@ -1,11 +1,11 @@
 package org.example;
 
-import org.example.model.Queue;
-import org.example.model.StaticQueue;
-import org.example.model.List;
-import org.example.model.StaticList;
-import org.example.model.Stack;
-import org.example.model.StaticStack;
+import org.example.model.Static.Queue;
+import org.example.model.Static.StaticQueue;
+import org.example.model.Static.List;
+import org.example.model.Static.StaticList;
+import org.example.model.Static.Stack;
+import org.example.model.Static.StaticStack;
 import org.example.util.QueueUtil;
 import org.example.util.StackListUtil;
 import org.example.util.StackUtil;

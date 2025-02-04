@@ -1,9 +1,9 @@
 package org.example.util;
 
-import org.example.model.Queue;
-import org.example.model.StaticQueue;
-import org.example.model.List;
-import org.example.model.StaticList;
+import org.example.model.Static.Queue;
+import org.example.model.Static.StaticQueue;
+import org.example.model.Static.List;
+import org.example.model.Static.StaticList;
 
 public class QueueUtil {
     public static Queue copy(Queue originalQueue) {
