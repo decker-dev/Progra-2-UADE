@@ -1,4 +1,4 @@
-package org.example.model.nodes;
+package org.example.model.dynamic.nodes;
 
 public class Node {
     private int value;

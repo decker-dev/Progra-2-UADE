@@ -1,8 +1,8 @@
-package org.example.model;
+package org.example.model.dynamic;
 
-import org.example.model.nodes.Node;
+import org.example.model.dynamic.nodes.Node;
 
-public class LinkedList implements ListNode {
+public class LinkedList implements List {
 
     private Node first;
 

@@ -1,6 +1,6 @@
-package org.example.model;
+package org.example.model.dynamic;
 
-public interface ListNode {
+public interface List {
     void add(int element);
     void remove();
     int length();
